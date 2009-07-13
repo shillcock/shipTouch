@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dmz>
+<dmzFileCacheLocal>
+   <path value="../dmz/scripts/entity"/>
+   <path value="./scripts"/>
+</dmzFileCacheLocal>
+<dmzArchivePluginObject>
+   <archive>
+      <attribute name="Last_Network_Value" contains="True"/>
+   </archive>
+</dmzArchivePluginObject>
+</dmz>

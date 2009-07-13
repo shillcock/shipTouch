@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest>
+   <frequency value="30.0"/>
+   <config file="runtime.xml"/>
+   <config file="common.xml"/>
+   <config file="net.xml"/>
+   <config file="waveapp.xml"/>
+</manifest>
