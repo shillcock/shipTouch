@@ -17,7 +17,6 @@
 		7AB25E2B1006912C00EBBDCA /* libdmzKernel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AB25DC910068F8800EBBDCA /* libdmzKernel.a */; };
 		7AB25ECA10069A4200EBBDCA /* dmzAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7AB25EC010069A4200EBBDCA /* dmzAppDelegate.mm */; };
 		7AB25ECB10069A4200EBBDCA /* dmzApplicationiPhone.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7AB25EC110069A4200EBBDCA /* dmzApplicationiPhone.cpp */; };
-		7AB25ECC10069A4200EBBDCA /* dmzLogObserverNSLog.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7AB25EC410069A4200EBBDCA /* dmzLogObserverNSLog.mm */; };
 		7AB25ECE10069A4200EBBDCA /* dmzSystemFileMacOS.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7AB25EC710069A4200EBBDCA /* dmzSystemFileMacOS.mm */; };
 		7AB25ECF10069A4200EBBDCA /* dmzUIKitUtil.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7AB25EC910069A4200EBBDCA /* dmzUIKitUtil.mm */; };
 		7AB25EE510069B9C00EBBDCA /* libexpat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AB25DCB10068F8800EBBDCA /* libexpat.a */; };
@@ -51,9 +50,13 @@
 		7AB262971006B3AC00EBBDCA /* slider_left.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AB262941006B3AC00EBBDCA /* slider_left.png */; };
 		7AB2629B1006B43B00EBBDCA /* dmzShipModuleiPhone.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7AB2629A1006B43B00EBBDCA /* dmzShipModuleiPhone.mm */; };
 		7AB263421006BC5200EBBDCA /* libdmzNetExtPacketCodecObjectNative.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AB263301006BBC800EBBDCA /* libdmzNetExtPacketCodecObjectNative.a */; };
+		7ADC354D100D180900BBBFF9 /* dmzLogMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADC3549100D180900BBBFF9 /* dmzLogMessage.m */; };
+		7ADC354E100D180900BBBFF9 /* dmzLogMessage.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 7ADC354A100D180900BBBFF9 /* dmzLogMessage.xcdatamodel */; };
+		7ADC354F100D180900BBBFF9 /* dmzLogViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7ADC354B100D180900BBBFF9 /* dmzLogViewController.mm */; };
 		D2835E421007AA4A00C989FB /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D2835E411007AA4A00C989FB /* Icon.png */; };
 		D2835E471007B43400C989FB /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = D2835E461007B43400C989FB /* Default.png */; };
 		D2DCD8C41008004A00133572 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2DCD8C31008004A00133572 /* CoreData.framework */; };
+		D2DCD9C0100BAC5F00133572 /* dmzLogObserverCoreData.mm in Sources */ = {isa = PBXBuildFile; fileRef = D2DCD9BF100BAC5F00133572 /* dmzLogObserverCoreData.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -558,8 +561,6 @@
 		7AB25EC010069A4200EBBDCA /* dmzAppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = dmzAppDelegate.mm; sourceTree = "<group>"; };
 		7AB25EC110069A4200EBBDCA /* dmzApplicationiPhone.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = dmzApplicationiPhone.cpp; sourceTree = "<group>"; };
 		7AB25EC210069A4200EBBDCA /* dmzApplicationiPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dmzApplicationiPhone.h; sourceTree = "<group>"; };
-		7AB25EC310069A4200EBBDCA /* dmzLogObserverNSLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dmzLogObserverNSLog.h; sourceTree = "<group>"; };
-		7AB25EC410069A4200EBBDCA /* dmzLogObserverNSLog.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = dmzLogObserverNSLog.mm; sourceTree = "<group>"; };
 		7AB25EC610069A4200EBBDCA /* dmzSystemFileMacOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dmzSystemFileMacOS.h; sourceTree = "<group>"; };
 		7AB25EC710069A4200EBBDCA /* dmzSystemFileMacOS.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = dmzSystemFileMacOS.mm; sourceTree = "<group>"; };
 		7AB25EC810069A4200EBBDCA /* dmzUIKitUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dmzUIKitUtil.h; sourceTree = "<group>"; };
@@ -578,10 +579,17 @@
 		7AB262941006B3AC00EBBDCA /* slider_left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slider_left.png; sourceTree = "<group>"; };
 		7AB262991006B43B00EBBDCA /* dmzShipModuleiPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dmzShipModuleiPhone.h; sourceTree = "<group>"; };
 		7AB2629A1006B43B00EBBDCA /* dmzShipModuleiPhone.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = dmzShipModuleiPhone.mm; sourceTree = "<group>"; };
+		7ADC3548100D180900BBBFF9 /* dmzLogMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dmzLogMessage.h; sourceTree = "<group>"; };
+		7ADC3549100D180900BBBFF9 /* dmzLogMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dmzLogMessage.m; sourceTree = "<group>"; };
+		7ADC354A100D180900BBBFF9 /* dmzLogMessage.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; path = dmzLogMessage.xcdatamodel; sourceTree = "<group>"; };
+		7ADC354B100D180900BBBFF9 /* dmzLogViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = dmzLogViewController.mm; sourceTree = "<group>"; };
+		7ADC354C100D180900BBBFF9 /* dmzLogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dmzLogViewController.h; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* shipTouch-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "shipTouch-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		D2835E411007AA4A00C989FB /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		D2835E461007B43400C989FB /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		D2DCD8C31008004A00133572 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		D2DCD9BE100BAC5F00133572 /* dmzLogObserverCoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dmzLogObserverCoreData.h; sourceTree = "<group>"; };
+		D2DCD9BF100BAC5F00133572 /* dmzLogObserverCoreData.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = dmzLogObserverCoreData.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -751,8 +759,13 @@
 				7AB25EC210069A4200EBBDCA /* dmzApplicationiPhone.h */,
 				7AB25EF010069C0800EBBDCA /* dmzApplicationStateBasic.h */,
 				7AB25EF110069C0800EBBDCA /* dmzApplicationStateBasic.cpp */,
-				7AB25EC310069A4200EBBDCA /* dmzLogObserverNSLog.h */,
-				7AB25EC410069A4200EBBDCA /* dmzLogObserverNSLog.mm */,
+				D2DCD9BE100BAC5F00133572 /* dmzLogObserverCoreData.h */,
+				D2DCD9BF100BAC5F00133572 /* dmzLogObserverCoreData.mm */,
+				7ADC3548100D180900BBBFF9 /* dmzLogMessage.h */,
+				7ADC3549100D180900BBBFF9 /* dmzLogMessage.m */,
+				7ADC354A100D180900BBBFF9 /* dmzLogMessage.xcdatamodel */,
+				7ADC354B100D180900BBBFF9 /* dmzLogViewController.mm */,
+				7ADC354C100D180900BBBFF9 /* dmzLogViewController.h */,
 				7AB25EC610069A4200EBBDCA /* dmzSystemFileMacOS.h */,
 				7AB25EC710069A4200EBBDCA /* dmzSystemFileMacOS.mm */,
 				7AB25EC810069A4200EBBDCA /* dmzUIKitUtil.h */,
@@ -1203,12 +1216,15 @@
 				28D7ACF80DDB3853001CB0EB /* RootViewController.mm in Sources */,
 				7AB25ECA10069A4200EBBDCA /* dmzAppDelegate.mm in Sources */,
 				7AB25ECB10069A4200EBBDCA /* dmzApplicationiPhone.cpp in Sources */,
-				7AB25ECC10069A4200EBBDCA /* dmzLogObserverNSLog.mm in Sources */,
 				7AB25ECE10069A4200EBBDCA /* dmzSystemFileMacOS.mm in Sources */,
 				7AB25ECF10069A4200EBBDCA /* dmzUIKitUtil.mm in Sources */,
 				7AB25EF210069C0800EBBDCA /* dmzApplicationStateBasic.cpp in Sources */,
 				7AB25FA510069E3600EBBDCA /* dmz_create_plugins.cpp in Sources */,
 				7AB2629B1006B43B00EBBDCA /* dmzShipModuleiPhone.mm in Sources */,
+				D2DCD9C0100BAC5F00133572 /* dmzLogObserverCoreData.mm in Sources */,
+				7ADC354D100D180900BBBFF9 /* dmzLogMessage.m in Sources */,
+				7ADC354E100D180900BBBFF9 /* dmzLogMessage.xcdatamodel in Sources */,
+				7ADC354F100D180900BBBFF9 /* dmzLogViewController.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

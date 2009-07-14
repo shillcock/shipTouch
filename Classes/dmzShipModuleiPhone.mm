@@ -45,6 +45,8 @@ dmz::ShipModuleiPhone::ShipModuleiPhone (const PluginInfo &Info, Config &local) 
    app.window.backgroundColor = [UIColor blackColor];
    app.rootController = _rootViewController;
 
+   _rootViewController.managedObjectContext = [app managedObjectContext];
+         
    _init (local);
 }
 

@@ -8,18 +8,22 @@
 
 #import "RootViewController.h"
 #import "dmzShipModuleiPhone.h"
+#import "dmzLogViewController.h"
 #import "dmzUIKitUtil.h"
 
 #define ANIMATION_DURATION 1.0
 #define SPEED_TAG 100
 #define AMPLITUDE_TAG 102
 #define PERIOD_TAG 103
+#define INFO_TAG 104
 
 
 @implementation RootViewController
 
+@synthesize managedObjectContext, navigationController;
 @synthesize waveSpeedLabel, waveAmplitudeLabel, wavePeriodLabel;
 @synthesize waveSpeedSlider, waveAmplitudeSlider, wavePeriodSlider;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
    
@@ -32,6 +36,9 @@
 
 
 - (void)dealloc {
+
+   [managedObjectContext release];
+   [navigationController release];
    
    [waveSpeedLabel release];
    [waveAmplitudeLabel release];
@@ -71,6 +78,10 @@
    CGRect periodOnScreenFrame = periodView.frame;
    periodView.frame = CGRectOffset (periodOnScreenFrame, -500, 0);
    
+   UIView *infoView = [self.view viewWithTag:INFO_TAG];
+   CGRect infoOnScreenFrame = infoView.frame;
+   infoView.frame = CGRectOffset (infoOnScreenFrame, 0, 800);
+   
    // start a new animation
 	[UIView beginAnimations:nil context:nil];
 	[UIView setAnimationDuration:ANIMATION_DURATION];
@@ -84,6 +95,7 @@
    speedView.frame = speedOnScreenFrame;
    amplitudeView.frame = amplitudeOnScreenFrame;
    periodView.frame = periodOnScreenFrame;
+   infoView.frame = infoOnScreenFrame;
 	
 	// commit the animation to finish it up
 	[UIView commitAnimations];
@@ -129,6 +141,28 @@
          wavePeriodLabel.text = [NSString stringWithFormat:@"%.0f", [wavePeriodSlider value]];
          mod->set_wave_period ([wavePeriodSlider value]);
       }
+   }
+}
+
+
+-(IBAction)showLogController {
+
+   NSManagedObjectContext *context = [self managedObjectContext];
+   
+   if (context) {
+      
+      dmzLogViewController *logViewController = [[dmzLogViewController alloc] initWithStyle:UITableViewStylePlain];
+      
+      logViewController.managedObjectContext = context;
+      
+      UINavigationController *aNavigationController = [[UINavigationController alloc] initWithRootViewController:logViewController];
+      [logViewController release];
+      
+      aNavigationController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+      
+      [self presentModalViewController:aNavigationController animated:YES];
+      
+      [aNavigationController release];
    }
 }
 

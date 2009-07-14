@@ -6,9 +6,12 @@
 //  Copyright __MyCompanyName__ 2009. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <CoreData/CoreData.h>
 
 @interface RootViewController : UIViewController {
+
+   NSManagedObjectContext *managedObjectContext; 
+   UINavigationController *navigationController;
 
    UILabel *waveSpeedLabel;
    UILabel *waveAmplitudeLabel;
@@ -17,9 +20,10 @@
    UISlider *waveSpeedSlider;
    UISlider *waveAmplitudeSlider;
    UISlider *wavePeriodSlider;
-   
-//   UIView *waveSpeedView;
 }
+
+@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext; 
+@property (nonatomic, retain) UINavigationController *navigationController;
 
 @property (nonatomic, retain) IBOutlet UILabel *waveSpeedLabel;
 @property (nonatomic, retain) IBOutlet UILabel *waveAmplitudeLabel;
@@ -29,9 +33,9 @@
 @property (nonatomic, retain) IBOutlet UISlider *waveAmplitudeSlider;
 @property (nonatomic, retain) IBOutlet UISlider *wavePeriodSlider;
 
-//@property (nonatomic, retain) IBOutlet UIView *waveSpeedView;
+-(IBAction)sliderValueChanged:(id)sender;
 
--(IBAction) sliderValueChanged:(id)sender;
+-(IBAction)showLogController;
 
 @end
 
