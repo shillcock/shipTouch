@@ -11,7 +11,7 @@
 #import "dmzLogViewController.h"
 #import "dmzUIKitUtil.h"
 
-#define ANIMATION_DURATION 1.0
+#define ANIMATION_DURATION 1.5
 #define SPEED_TAG 100
 #define AMPLITUDE_TAG 102
 #define PERIOD_TAG 103

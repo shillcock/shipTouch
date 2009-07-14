@@ -13,6 +13,7 @@
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		2899E5220DE3E06400AC0155 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2899E5210DE3E06400AC0155 /* RootViewController.xib */; };
 		28D7ACF80DDB3853001CB0EB /* RootViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 28D7ACF70DDB3853001CB0EB /* RootViewController.mm */; };
+		7A4489C2100D1E4600BD6B11 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A4489C1100D1E4600BD6B11 /* Entitlements.plist */; };
 		7AB25E231006903F00EBBDCA /* dmz.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 7AB25E221006903F00EBBDCA /* dmz.xcconfig */; };
 		7AB25E2B1006912C00EBBDCA /* libdmzKernel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AB25DC910068F8800EBBDCA /* libdmzKernel.a */; };
 		7AB25ECA10069A4200EBBDCA /* dmzAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7AB25EC010069A4200EBBDCA /* dmzAppDelegate.mm */; };
@@ -555,6 +556,7 @@
 		28D7ACF70DDB3853001CB0EB /* RootViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RootViewController.mm; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* shipTouch_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shipTouch_Prefix.pch; sourceTree = "<group>"; };
+		7A4489C1100D1E4600BD6B11 /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		7AB25D9F10068F8800EBBDCA /* dmzXcode.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = dmzXcode.xcodeproj; path = ../dmz/xcode/dmzXcode/dmzXcode.xcodeproj; sourceTree = SOURCE_ROOT; };
 		7AB25E221006903F00EBBDCA /* dmz.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = dmz.xcconfig; path = ../dmz/xcode/dmz.xcconfig; sourceTree = SOURCE_ROOT; };
 		7AB25EBF10069A4200EBBDCA /* dmzAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dmzAppDelegate.h; sourceTree = "<group>"; };
@@ -676,6 +678,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7A4489C1100D1E4600BD6B11 /* Entitlements.plist */,
 				D2835E461007B43400C989FB /* Default.png */,
 				D2835E411007AA4A00C989FB /* Icon.png */,
 				7AB262921006B3AC00EBBDCA /* slider_thumb.png */,
@@ -1184,6 +1187,7 @@
 				7AB262971006B3AC00EBBDCA /* slider_left.png in Resources */,
 				D2835E421007AA4A00C989FB /* Icon.png in Resources */,
 				D2835E471007B43400C989FB /* Default.png in Resources */,
+				7A4489C2100D1E4600BD6B11 /* Entitlements.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1385,6 +1389,36 @@
 			};
 			name = opt;
 		};
+		7A4489BC100D1D5D00BD6B11 /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7AB25E221006903F00EBBDCA /* dmz.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CM_ROOT = ../..;
+				CODE_SIGN_ENTITLEMENTS = Entitlements.plist;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: MPSC";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LMK_HOME = ../lmk;
+				PREBINDING = NO;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "41EDF098-DF2E-4EFE-BEE6-D3AF83247160";
+				SDKROOT = iphoneos3.0;
+			};
+			name = Distribution;
+		};
+		7A4489BD100D1D5D00BD6B11 /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = shipTouch_Prefix.pch;
+				INFOPLIST_FILE = "shipTouch-Info.plist";
+				PRODUCT_NAME = shipTouch;
+			};
+			name = Distribution;
+		};
 		C01FCF4F08A954540054247B /* debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7AB25E221006903F00EBBDCA /* dmz.xcconfig */;
@@ -1403,12 +1437,15 @@
 		};
 		C01FCF5008A954540054247B /* opt */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7AB25E221006903F00EBBDCA /* dmz.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CM_ROOT = ../..;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				LMK_HOME = ../lmk;
 				PREBINDING = NO;
 				SDKROOT = iphoneos3.0;
 			};
@@ -1422,6 +1459,7 @@
 			buildConfigurations = (
 				1D6058940D05DD3E006BFB54 /* debug */,
 				1D6058950D05DD3E006BFB54 /* opt */,
+				7A4489BD100D1D5D00BD6B11 /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = opt;
@@ -1431,6 +1469,7 @@
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* debug */,
 				C01FCF5008A954540054247B /* opt */,
+				7A4489BC100D1D5D00BD6B11 /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = opt;
