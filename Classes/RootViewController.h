@@ -34,7 +34,7 @@
 @property (nonatomic, retain) IBOutlet UISlider *wavePeriodSlider;
 
 -(IBAction)sliderValueChanged:(id)sender;
-
+-(IBAction)sliderUpdated:(id)sender;
 -(IBAction)showLogController;
 
 @end

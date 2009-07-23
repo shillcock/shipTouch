@@ -51,6 +51,10 @@ namespace dmz {
          void set_wave_speed (const Float64 Value);
          void set_wave_amplitude (const Float64 Value);
          void set_wave_period (const Float64 Value);
+            
+         Float64 calc_wave_speed (const Float64 Value);
+         Float64 calc_wave_amplitude (const Float64 Value);            
+         Float64 calc_wave_period (const Float64 Value);
          
       protected:
          static ShipModuleiPhone *_instance;

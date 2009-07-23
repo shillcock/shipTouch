@@ -60,6 +60,9 @@
    UIKitImproveSliderAccuracy (waveSpeedSlider);
    UIKitImproveSliderAccuracy (waveAmplitudeSlider);
    UIKitImproveSliderAccuracy (wavePeriodSlider);
+   
+   UIView *infoView = [self.view viewWithTag:INFO_TAG];
+   infoView.frame = CGRectInset (infoView.frame, -20, -20);
 }
 
 
@@ -128,17 +131,36 @@
       
       if (sender == waveSpeedSlider) {
       
-         waveSpeedLabel.text = [NSString stringWithFormat:@"%.0f", [waveSpeedSlider value]];
+         waveSpeedLabel.text = [NSString stringWithFormat:@"%.1f", mod->calc_wave_speed ([waveSpeedSlider value])];
+      }
+      else if (sender == waveAmplitudeSlider) {
+         
+         waveAmplitudeLabel.text = [NSString stringWithFormat:@"%.1f", mod->calc_wave_amplitude ([waveAmplitudeSlider value])];
+      }
+      else if (sender == wavePeriodSlider) {
+         
+         wavePeriodLabel.text = [NSString stringWithFormat:@"%.0f", mod->calc_wave_period ([wavePeriodSlider value])];
+      }
+   }
+}
+
+
+- (IBAction)sliderUpdated:(id)sender {
+   
+   dmz::ShipModuleiPhone *mod (dmz::ShipModuleiPhone::get_instance ());
+   
+   if (mod) {
+
+      if (sender == waveSpeedSlider) {
+         
          mod->set_wave_speed ([waveSpeedSlider value]);
       }
       else if (sender == waveAmplitudeSlider) {
          
-         waveAmplitudeLabel.text = [NSString stringWithFormat:@"%.0f", [waveAmplitudeSlider value]];
          mod->set_wave_amplitude ([waveAmplitudeSlider value]);
       }
       else if (sender == wavePeriodSlider) {
          
-         wavePeriodLabel.text = [NSString stringWithFormat:@"%.0f", [wavePeriodSlider value]];
          mod->set_wave_period ([wavePeriodSlider value]);
       }
    }

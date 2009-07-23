@@ -170,24 +170,46 @@ dmz::ShipModuleiPhone::update_object_scalar (
 void
 dmz::ShipModuleiPhone::set_wave_speed (const Float64 Value) {
 
-   const Float64 Update = (Value * 0.01 * _speedRange) + _speedMin;
-   _update_attribute (_waveSpeedAttributeHandle, Update);
+   _update_attribute (_waveSpeedAttributeHandle, calc_wave_speed (Value));
 }
 
 
 void
 dmz::ShipModuleiPhone::set_wave_amplitude (const Float64 Value) {
  
-   const Float64 Update = (Value * 0.01 * _amplitudeRange) + _amplitudeMin;
-   _update_attribute (_waveAmplitudeAttributeHandle, Update);
+   _update_attribute (_waveAmplitudeAttributeHandle, calc_wave_amplitude (Value));
 }
 
 
 void
 dmz::ShipModuleiPhone::set_wave_period (const Float64 Value) {
 
-   const Float64 Update = (Value * 0.01 * _periodRange) + _periodMin;
+   const Float64 Update (calc_wave_period (Value));
    _update_attribute (_waveNumberAttributeHandle, Update > 0.0 ? 1.0 / Update : 0.001);
+}
+
+
+dmz::Float64
+dmz::ShipModuleiPhone::calc_wave_speed (const Float64 Value) {
+   
+   const Float64 Update = (Value * 0.01 * _speedRange) + _speedMin;
+   return Update;
+}
+
+
+dmz::Float64
+dmz::ShipModuleiPhone::calc_wave_amplitude (const Float64 Value) {
+   
+   const Float64 Update = (Value * 0.01 * _amplitudeRange) + _amplitudeMin;
+   return Update;
+}
+
+
+dmz::Float64
+dmz::ShipModuleiPhone::calc_wave_period (const Float64 Value) {
+   
+   const Float64 Update = (Value * 0.01 * _periodRange) + _periodMin;
+   return Update;
 }
 
 
